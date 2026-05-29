@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overcoming Widowhood in Vrindavan - Anika Deshpande</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f0e8;
+    --deep: #1a1209;
+    --rust: #b5451b;
+    --teal: #2a6b6e;
+    --gold: #c8963e;
+    --muted: #6b5f4e;
+    --light-teal: #e8f2f2;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--deep);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 3rem;
+    background: rgba(245,240,232,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(181,69,27,0.15);
+  }
+
+  nav .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--rust);
+    letter-spacing: 0.02em;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+  }
+
+  nav ul a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  nav ul a:hover { color: var(--rust); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 4rem;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 4rem 5rem 5rem;
+  }
+
+  .hero-tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .hero-tag::before {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--rust);
+    display: inline-block;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--deep);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--rust);
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--muted);
+    max-width: 42ch;
+    margin-bottom: 3rem;
+  }
+
+  .hero-author {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--deep);
+  }
+
+  .hero-author span {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.25rem;
+  }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: sepia(20%) contrast(1.05);
+  }
+
+  .hero-right::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--cream) 0%, transparent 15%);
+  }
+
+  /* STAT STRIP */
+  .stat-strip {
+    background: var(--deep);
+    color: var(--cream);
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    overflow: hidden;
+  }
+
+  .stat-item {
+    padding: 2.5rem 4rem;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    flex: 1;
+    max-width: 260px;
+  }
+  .stat-item:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.6);
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+
+  /* SECTIONS */
+  section { padding: 7rem 5rem; }
+
+  .section-tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-tag::before {
+    content: '';
+    width: 1.5rem;
+    height: 1px;
+    background: var(--rust);
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .body-text {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--muted);
+    max-width: 65ch;
+  }
+
+  /* CONTEXT SECTION */
+  .context {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  /* PULL QUOTE */
+  .pull-quote {
+    background: var(--teal);
+    color: var(--cream);
+    padding: 5rem;
+    text-align: center;
+  }
+
+  .pull-quote blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.5;
+    max-width: 700px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .pull-quote cite {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  /* PROBLEMS SECTION */
+  .problems {
+    background: #f0ebe0;
+  }
+
+  .problems-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .problem-card {
+    background: var(--cream);
+    padding: 2.5rem;
+    border-top: 3px solid var(--rust);
+    position: relative;
+  }
+
+  .problem-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: rgba(181,69,27,0.12);
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    line-height: 1;
+  }
+
+  .problem-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: var(--deep);
+  }
+
+  .problem-card p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+
+  .problem-stat {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    color: var(--rust);
+    font-weight: 300;
+    margin-top: 1.5rem;
+  }
+
+  .problem-stat-label {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 0.25rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* IMAGE GRID */
+  .image-section {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 400px;
+  }
+
+  .img-cell {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .img-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    filter: sepia(15%) contrast(1.05);
+  }
+
+  .img-cell:hover img { transform: scale(1.04); }
+
+  .img-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(26,18,9,0.8));
+    color: rgba(245,240,232,0.85);
+    font-size: 0.7rem;
+    padding: 1.5rem 1rem 0.75rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* SOLUTIONS */
+  .solutions {
+    background: var(--cream);
+  }
+
+  .solutions-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3.5rem;
+  }
+
+  .solution-card {
+    border: 1px solid rgba(42,107,110,0.2);
+    padding: 2.5rem;
+    background: var(--light-teal);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .solution-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--teal);
+  }
+
+  .solution-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.75rem;
+  }
+
+  .solution-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 1.2rem;
+  }
+
+  .solution-card p {
+    font-size: 0.9rem;
+    line-height: 1.85;
+    color: var(--muted);
+  }
+
+  .solution-card .evidence {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(42,107,110,0.2);
+    font-size: 0.8rem;
+    color: var(--teal);
+    font-style: italic;
+  }
+
+  /* STAKEHOLDERS */
+  .stakeholders {
+    background: var(--deep);
+    color: var(--cream);
+  }
+
+  .stakeholders h2 { color: var(--cream); }
+  .stakeholders .section-tag { color: var(--gold); }
+  .stakeholders .section-tag::before { background: var(--gold); }
+
+  .stakeholder-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 3rem;
+  }
+
+  .stakeholder-item {
+    background: rgba(255,255,255,0.04);
+    padding: 2.5rem;
+    border: 1px solid rgba(255,255,255,0.07);
+    transition: background 0.3s;
+  }
+  .stakeholder-item:hover { background: rgba(255,255,255,0.08); }
+
+  .stakeholder-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .stakeholder-item h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+    color: var(--gold);
+  }
+
+  .stakeholder-item p {
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: rgba(245,240,232,0.6);
+  }
+
+  /* REFLECTION */
+  .reflection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .reflection-left {
+    background: var(--rust);
+    color: var(--cream);
+    padding: 6rem 4rem;
+  }
+  .reflection-left h2 { color: var(--cream); }
+  .reflection-left .section-tag { color: rgba(245,240,232,0.7); }
+  .reflection-left .section-tag::before { background: rgba(245,240,232,0.7); }
+  .reflection-left .body-text { color: rgba(245,240,232,0.85); }
+
+  .reflection-right {
+    background: #ede7d9;
+    padding: 6rem 4rem;
+  }
+
+  .skills-list {
+    margin-top: 2rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .skills-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgba(245,240,232,0.92);
+  }
+
+  .skill-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(245,240,232,0.7);
+    flex-shrink: 0;
+    margin-top: 0.55rem;
+  }
+
+  /* NEXT STEPS */
+  .next-steps {
+    background: var(--cream);
+    padding: 7rem 5rem;
+  }
+
+  .steps-flow {
+    display: flex;
+    gap: 0;
+    margin-top: 3.5rem;
+    position: relative;
+  }
+
+  .steps-flow::before {
+    content: '';
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    right: 2rem;
+    height: 1px;
+    background: var(--gold);
+    z-index: 0;
+  }
+
+  .step-card {
+    flex: 1;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-marker {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+
+  .step-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+  }
+
+  .step-card p {
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+
+  /* FOOTER / SOURCES */
+  .sources-section {
+    background: #f0ebe0;
+    padding: 4rem 5rem;
+  }
+
+  .sources-section h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    color: var(--deep);
+  }
+
+  .sources-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 3rem;
+  }
+
+  .source-item {
+    font-size: 0.75rem;
+    line-height: 1.7;
+    color: var(--muted);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(107,95,78,0.15);
+  }
+
+  footer {
+    background: var(--deep);
+    color: rgba(245,240,232,0.45);
+    text-align: center;
+    padding: 2.5rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* WORKS CITED */
+  .works-cited-section {
+    background: var(--deep);
+    padding: 5rem;
+  }
+
+  .wc-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .works-cited-section .section-tag::before {
+    background: var(--gold);
+  }
+
+  .wc-entry {
+    font-size: 0.85rem;
+    line-height: 1.85;
+    color: rgba(245,240,232,0.65);
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    padding-left: 2em;
+    text-indent: -2em;
+  }
+
+  .wc-entry em {
+    font-style: italic;
+    color: rgba(245,240,232,0.8);
+  }
+
+  .wc-url {
+    color: var(--gold);
+    opacity: 0.8;
+    word-break: break-all;
+  }
+
+  @media (max-width: 900px) {
+    .works-cited-section { padding: 3rem 1.5rem; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav ul { display: none; }
+    .hero, .context, .reflection { grid-template-columns: 1fr; }
+    .hero-right { height: 50vw; }
+    section { padding: 4rem 1.5rem; }
+    .problems-grid, .solutions-layout, .stakeholder-grid, .sources-grid { grid-template-columns: 1fr; }
+    .image-section { grid-template-columns: 1fr; grid-template-rows: auto; }
+    .img-cell { height: 260px; }
+    .steps-flow { flex-direction: column; }
+    .steps-flow::before { display: none; }
+    nav { padding: 1rem 1.5rem; }
+    .stat-strip { flex-wrap: wrap; }
+    .stat-item { min-width: 160px; }
+    .reflection-left, .reflection-right { padding: 4rem 1.5rem; }
+    .sources-section { padding: 4rem 1.5rem; }
+    .next-steps { padding: 4rem 1.5rem; }
+    .pull-quote { padding: 3rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Anika Deshpande</div>
+  <ul>
+    <li><a href="#context">Context</a></li>
+    <li><a href="#problems">Problems</a></li>
+    <li><a href="#solutions">Solutions</a></li>
+    <li><a href="#stakeholders">Stakeholders</a></li>
+    <li><a href="#reflection">Reflection</a></li>
+    <li><a href="#next">Next Steps</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding-top: 4rem;">
+  <div class="hero-left fade-in">
+    <div class="hero-tag">Digital Portfolio · Research Paper</div>
+    <h1>Overcoming<br><em>Widowhood</em><br>in Vrindavan</h1>
+    <p class="hero-desc">A research inquiry into how the lives of widows in Vrindavan, India - known as the City of Widows - can be meaningfully improved through policy and community action.</p>
+    <div class="hero-author">
+      Anika Deshpande
+      <span>Independent Research · 2025</span>
+    </div>
+  </div>
+  <div class="hero-right fade-in">
+    <img 
+      src="https://www.aljazeera.com/wp-content/uploads/2016/03/3d1e070c07e04ac8824e09214e6b2fe4_8.jpeg"
+      alt="Widows in Vrindavan, India. Photo: Showkat Shafi / Al Jazeera"
+    />
+  </div>
+</section>
+
+<!-- STAT STRIP -->
+<div class="stat-strip">
+  <div class="stat-item fade-in">
+    <div class="stat-num">40%</div>
+    <div class="stat-label">Higher odds of death for<br>widows vs. married women</div>
+  </div>
+  <div class="stat-item fade-in">
+    <div class="stat-num">85%</div>
+    <div class="stat-label">Of widows report<br>experiencing loneliness</div>
+  </div>
+  <div class="stat-item fade-in">
+    <div class="stat-num">78%</div>
+    <div class="stat-label">Of rural widows live<br>below the poverty line</div>
+  </div>
+  <div class="stat-item fade-in">
+    <div class="stat-num">18%</div>
+    <div class="stat-label">Of eligible widows<br>actually receive pensions</div>
+  </div>
+</div>
+
+<!-- CONTEXT -->
+<section class="context" id="context">
+  <div class="fade-in">
+    <div class="section-tag">01 · Research Context</div>
+    <h2>A City Shaped by Exile</h2>
+    <p class="body-text">In India, widowhood is not merely the loss of a spouse - it is the loss of identity, community, and safety. Rooted in centuries of Hindu tradition, widows are considered cursed: bearers of ill fortune who carry the lingering dead. These beliefs drive devastating rituals and, in the most extreme cases, force women to flee their homes entirely.</p>
+    <br><br>
+    <p class="body-text">Vrindavan, a sacred city in Uttar Pradesh, has become an unlikely refuge. Tens of thousands of widows have migrated there, drawn by its religious significance - the god Krishna is said to have spent his childhood there - and the belief that a life of prayer might atone for the perceived curse of widowhood. This paper asks: once these women arrive, how can their lives be made better?</p>
+  </div>
+  <div class="fade-in">
+    <img 
+      src="https://www.aljazeera.com/wp-content/uploads/2016/03/e885d5945d8d4be0b5b1b2fe4106a34c_8.jpeg"
+      alt="Subudra Dasi, 67, abandoned by her children after her husband's death. Photo: Showkat Shafi / Al Jazeera"
+      style="width:100%; height: 420px; object-fit: cover; filter: sepia(20%);"
+    />
+    <p style="font-size:0.7rem; color: var(--muted); margin-top: 0.5rem;">Showkat Shafi / Al Jazeera · Vrindavan, India, 2016</p>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<div class="pull-quote fade-in">
+  <blockquote>"Historically, widows in Vrindavan led a miserable life, mostly begging and singing hymns in praise of God. Still, widows preferred this life over the abuse faced back home."</blockquote>
+  <cite>- Prof. Rekha Pande, 2015 · Pakistan Journal of Gender Studies</cite>
+</div>
+
+<!-- PROBLEMS -->
+<section class="problems" id="problems">
+  <div class="section-tag fade-in">02 · Core Problems</div>
+  <h2 class="fade-in">Two Compounding Crises</h2>
+  <p class="body-text fade-in">My research identified two deeply intertwined problems facing widows in Vrindavan. Neither can be solved in isolation - each reinforces the other in a cycle of deprivation.</p>
+
+  <div class="problems-grid">
+    <div class="problem-card fade-in">
+      <div class="problem-number">01</div>
+      <h3>Social Isolation</h3>
+      <p>Widows in India are barred from attending social gatherings, celebrations, and communal spaces. Restricted to white garments and stripped of jewelry, they are treated as socially dead. This systematic exclusion - not just loneliness, but structured ostracism - has severe physiological consequences. Chronic isolation raises the risk of heart disease by 29% and stroke by 32%.</p>
+      <div class="problem-stat">85%</div>
+      <div class="problem-stat-label">of widows report experiencing loneliness - Bhatia et al., 2007</div>
+    </div>
+    <div class="problem-card fade-in">
+      <div class="problem-number">02</div>
+      <h3>Economic Precarity</h3>
+      <p>In conservative rural households, women are rarely permitted access to education or employment, making them financially dependent on their husbands. Upon widowhood, this dependency collapses entirely. India's national widow pension - the Indira Gandhi National Widow Pension Scheme - offers just ₹300/month (about $3.30 USD) for women aged 40–79. Research shows this covers roughly 10% of living expenses.</p>
+      <div class="problem-stat">₹300</div>
+      <div class="problem-stat-label">monthly pension for widows aged 40–79 - as of 2024</div>
+    </div>
+  </div>
+</section>
+
+<!-- IMAGE GRID -->
+<div class="image-section">
+  <div class="img-cell">
+    <img 
+      src="https://www.aljazeera.com/wp-content/uploads/2016/03/9867dc530a684455a5bf117c5958cdb1_8.jpeg"
+      alt="Widows find solace in each other's company in shelter rooms in Vrindavan"
+    />
+    <div class="img-caption">Widows share cramped shelter rooms in Vrindavan · Showkat Shafi / Al Jazeera</div>
+  </div>
+  <div class="img-cell">
+    <img 
+      src="https://www.aljazeera.com/wp-content/uploads/2016/03/746963a6c93d4e5a9dcf4a636c185988_8.jpeg"
+      alt="Widows cooking their own food in the shelter"
+    />
+    <div class="img-caption">Widows cook using money earned begging or singing · Showkat Shafi / Al Jazeera</div>
+  </div>
+  <div class="img-cell">
+    <img 
+      src="https://www.aljazeera.com/wp-content/uploads/2016/03/b3d980a59e154c1897cfe6ad2aa166c7_8.jpeg"
+      alt="Arti Mistri, widowed at 18, thrown out by in-laws"
+    />
+    <div class="img-caption">Arti Mistri, widowed at 18, exiled by her in-laws · Showkat Shafi / Al Jazeera</div>
+  </div>
+</div>
+
+<!-- SOLUTIONS -->
+<section class="solutions" id="solutions">
+  <div class="section-tag fade-in">03 · Proposed Solutions</div>
+  <h2 class="fade-in">A Two-Part Answer</h2>
+  <p class="body-text fade-in">Neither solution alone is sufficient. My research proposes a combined approach: one that addresses the economic and the social simultaneously - because these crises are inseparable.</p>
+
+  <div class="solutions-layout">
+    <div class="solution-card fade-in">
+      <div class="solution-label">Solution 1 · Policy</div>
+      <h3>Enhanced Widow Pensions</h3>
+      <p>The current ₹300/month pension is woefully inadequate. Researchers Parvez and Shahare (2025) propose two key reforms: first, expand eligibility to include widows aged 30–39, who also face economic devastation; second, raise the monthly pension to at least ₹3,000 (≈ $33 USD) - aligned with India's minimum wage. Funding would draw from a small solidarity tax on high-income earners, as used in Argentina's universal pension reforms.</p>
+      <p class="evidence">Key gap: only 18% of eligible widows currently receive pensions - outreach partnerships with NGOs are essential to close this gap.</p>
+    </div>
+    <div class="solution-card fade-in">
+      <div class="solution-label">Solution 2 · Community</div>
+      <h3>NGO-Mediated Vocational Training</h3>
+      <p>Organizations like Sulabh International and The Loomba Foundation run vocational workshops - sewing, literacy, financial skills - that do double duty: building economic independence while creating regular communal gathering. Widows are brought together consistently, forging the social connections that pensions alone cannot provide. Research shows living in communities with other widows decreases mortality odds by 2% (Subramanian et al., 2008).</p>
+      <p class="evidence">These NGOs have already received government backing, demonstrating economic feasibility. This paper urges expanded federal and local funding.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STAKEHOLDERS -->
+<section class="stakeholders" id="stakeholders">
+  <div class="section-tag fade-in">04 · Perspectives & Stakeholders</div>
+  <h2 class="fade-in">Who Has a Voice?</h2>
+
+  <div class="stakeholder-grid">
+    <div class="stakeholder-item fade-in">
+      <div class="stakeholder-icon">🏠</div>
+      <h4>The Widows Themselves</h4>
+      <p>Women who have fled abuse, exile, and poverty. 48% cite mistreatment by in-laws as their primary reason for leaving home. Their lived experience is the foundation of this research - and their agency must be central to any solution.</p>
+    </div>
+    <div class="stakeholder-item fade-in">
+      <div class="stakeholder-icon">🏛️</div>
+      <h4>Indian Government</h4>
+      <p>The state is the architect of pension policy. While the Indira Gandhi National Widow Pension Scheme exists, it is critically underfunded and unadjusted for inflation. Federal and state legislators hold the power to reform eligibility and payment levels.</p>
+    </div>
+    <div class="stakeholder-item fade-in">
+      <div class="stakeholder-icon">🤝</div>
+      <h4>NGOs</h4>
+      <p>Organizations like Sulabh International and The Loomba Foundation have pioneered grassroots empowerment: literacy drives, vocational workshops, the annual Holi festival - an act of liberation for women banned from wearing color.</p>
+    </div>
+    <div class="stakeholder-item fade-in">
+      <div class="stakeholder-icon">📚</div>
+      <h4>Academic Researchers</h4>
+      <p>Scholars like Prof. Rekha Pande, Agre et al., and Reed et al. have produced the evidence base that makes policy arguments possible. Their work transforms individual suffering into measurable, actionable data.</p>
+    </div>
+    <div class="stakeholder-item fade-in">
+      <div class="stakeholder-icon">👪</div>
+      <h4>Families & Communities</h4>
+      <p>The "push factor" driving widows to Vrindavan is often family: in-law abuse, social pressure, and patriarchal norms. Changing the cultural attitudes of families is a longer-term necessity alongside immediate policy fixes.</p>
+    </div>
+    <div class="stakeholder-item fade-in">
+      <div class="stakeholder-icon">🌍</div>
+      <h4>International Community</h4>
+      <p>Nordic countries offer a model for universal widow support. Cross-national comparisons - as Parvez and Shahare (2025) undertake - give India both inspiration and political cover for more ambitious reform.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REFLECTION -->
+<section class="reflection" id="reflection" style="padding: 0;">
+  <div class="reflection-left fade-in">
+    <div class="section-tag">05 · What I Learned</div>
+    <h2>Skills Grown Through Research</h2>
+    <p class="body-text">This project pushed me far beyond the classroom. It required me to synthesize academic literature across sociology, economics, and public health - and to write not just analytically, but with moral clarity about real human lives.</p>
+    <br>
+    <ul class="skills-list">
+      <li><div class="skill-dot"></div>Synthesizing interdisciplinary academic sources into a coherent argument</li>
+      <li><div class="skill-dot"></div>Writing with rigor and empathy simultaneously - letting data tell a human story</li>
+      <li><div class="skill-dot"></div>Understanding policy mechanisms: how pensions are funded, distributed, and reformed</li>
+      <li><div class="skill-dot"></div>Recognizing intersectionality - widowhood as gendered, economic, and spiritual all at once</li>
+      <li><div class="skill-dot"></div>Evaluating solutions against their blind spots - no proposal is perfect in isolation</li>
+    </ul>
+  </div>
+  <div class="reflection-right fade-in">
+    <div class="section-tag">Perspective</div>
+    <h2>Why This Research Matters to Me</h2>
+    <p class="body-text">Growing up in a South Asian household, I was aware - in the background of family stories - that widowhood carried stigma. But research transformed that vague awareness into something precise and urgent. When I read that 85% of widows in Vrindavan report loneliness, or that the monthly pension amounts to $3.30, I couldn't look away.</p>
+    <br>
+    <p class="body-text">This research taught me that "culture" is never a sufficient explanation for suffering - it is always also about policy, funding, and political will. The widows of Vrindavan are not waiting for a miracle. They are waiting for the minimum wage.</p>
+    <br>
+    <img 
+      src="https://www.aljazeera.com/wp-content/uploads/2016/03/aea0d8407e524ffab9294b0b9a1c7336_8.jpeg"
+      alt="Maya Rani, 80, who has longed for respect and dignity. Photo: Showkat Shafi / Al Jazeera"
+      style="width:100%; height:220px; object-fit:cover; margin-top:1rem; filter:sepia(15%);"
+    />
+    <p style="font-size:0.7rem; color: var(--muted); margin-top: 0.5rem;">Maya Rani, 80 - Showkat Shafi / Al Jazeera, 2016</p>
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<section class="next-steps" id="next">
+  <div class="section-tag fade-in">06 · Next Steps</div>
+  <h2 class="fade-in">Where This Research Goes</h2>
+  <p class="body-text fade-in">This paper is a beginning, not an end. Here is how I intend to carry this work forward - from the page into the world.</p>
+
+  <div class="steps-flow">
+    <div class="step-card fade-in">
+      <div class="step-marker">1</div>
+      <h4>Share the Work</h4>
+      <p>Submit this research to high school and undergraduate academic journals. Present findings to my school community to raise awareness of widow discrimination in India.</p>
+    </div>
+    <div class="step-card fade-in">
+      <div class="step-marker">2</div>
+      <h4>Connect with NGOs</h4>
+      <p>Reach out to The Loomba Foundation and Sulabh International to understand how students can support their programs - whether through fundraising, translation, or advocacy.</p>
+    </div>
+    <div class="step-card fade-in">
+      <div class="step-marker">3</div>
+      <h4>Study Policy Deeply</h4>
+      <p>Pursue coursework in public policy, gender studies, and South Asian history at university. The intersection of these fields is where I want to build expertise.</p>
+    </div>
+    <div class="step-card fade-in">
+      <div class="step-marker">4</div>
+      <h4>Field Research</h4>
+      <p>Long-term: travel to Vrindavan to conduct primary research - interviews with widows, NGO workers, and local officials - to move beyond secondary literature.</p>
+    </div>
+    <div class="step-card fade-in">
+      <div class="step-marker">5</div>
+      <h4>Advocacy</h4>
+      <p>Draft a policy brief based on this research to share with Indian diaspora community organizations and, ultimately, with policymakers working on social welfare reform.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<div class="sources-section fade-in" id="sources">
+  <h3>Image Sources</h3>
+  <div class="sources-grid">
+    <div class="source-item">All photographs by <strong>Showkat Shafi / Al Jazeera</strong>, from "Widows in India: My children threw me out of the house," Al Jazeera, 7 Mar. 2016. <span style="word-break:break-all;">https://www.aljazeera.com/gallery/2016/3/7/widows-in-india-my-children-threw-me-out-of-the-house</span></div>
+  </div>
+</div>
+
+<!-- WORKS CITED -->
+<div class="works-cited-section fade-in">
+  <div class="wc-inner">
+    <div class="section-tag" style="color:var(--gold);margin-bottom:1rem;">Works Cited</div>
+    <h2 style="color:var(--cream); margin-bottom: 2.5rem;">Full Bibliography</h2>
+
+    <div class="wc-entry">Agre, Kartik, Gaurav Mittal, Vahibaya Khali, Toshali Pattnaik, Rachana Choudhary, and Tushar Pal. "Ensuring Equity: Safeguarding Property Rights and Empowering Hindu Widows in Vrindavan." <em>European Economic Letters</em>, vol. 14, no. 3, 2024. <span class="wc-url">http://eelet.org.uk</span></div>
+
+    <div class="wc-entry">Bandyopadhyay, Aparna. "Violence against Widows in Colonial Bengal." In Anasua Basu Ray Chaudhury, ed., <em>Perspectives Asia-Pacific: Navigating Changes in Society, Culture, Gender and Policy</em>. Motilal Banarasidass, 2025.</div>
+
+    <div class="wc-entry">Bhardwaj, Nisha, and Anviti Gupta. "Social Isolation and the Marginalization of Destitute Women in Vrindavan." Preprint, 9 Oct. 2025. <span class="wc-url">https://doi.org/10.21203/rs.3.rs-7433373/v1</span></div>
+
+    <div class="wc-entry">Bhatia, S. P. S., et al. "A Study of Health Problems and Loneliness among the Elderly in Chandigarh." <em>Indian Journal of Community Medicine</em>, vol. 32, no. 4, 2007, p. 255. <span class="wc-url">https://doi.org/10.4103/0970-0218.37689</span></div>
+
+    <div class="wc-entry">Chandra, Anjuli. "Vulnerability of Widows in India: Need for Inclusion." <em>International Journal of Social and Economic Research</em>, vol. 1, no. 1, 2011, pp. 124–132.</div>
+
+    <div class="wc-entry">Choudhary, Akanksha, et al. "Does Widowhood Affect Social Capital in Old Age: The Case of India." <em>Frontiers in Sociology</em>, vol. 10, 2025. <span class="wc-url">https://doi.org/10.3389/fsoc.2025.1549004</span></div>
+
+    <div class="wc-entry">Ferreira, Jennifer, et al. "Spaces of Consumption, Connection, and Community: Exploring the Role of the Coffee Shop in Urban Lives." <em>Geoforum</em>, vol. 119, 2021, pp. 21–29. <span class="wc-url">https://doi.org/10.1016/j.geoforum.2020.12.024</span></div>
+
+    <div class="wc-entry">Hasan, Zeba. "Widowhood in India." <em>Journal of Exclusion Studies</em>, vol. 3, no. 2, 2013, p. 123. <span class="wc-url">https://doi.org/10.5958/j.2231-4555.3.2.016</span></div>
+
+    <div class="wc-entry">IJCRT. "Socio-Cultural Problems of Migrant Widows in India: Special Reference to Vrindavan City." <em>International Journal of Creative Research Thoughts</em>, vol. 10, no. 6, 2022. <span class="wc-url">https://ijcrt.org/papers/IJCRT22A6911.pdf</span></div>
+
+    <div class="wc-entry">Jain, Urvashi, et al. "Widowhood and Cognition among Older Women in India: New Insights on Widowhood Duration and Mediators." <em>SSM – Population Health</em>, vol. 19, 2022, p. 101242. <span class="wc-url">https://doi.org/10.1016/j.ssmph.2022.101242</span></div>
+
+    <div class="wc-entry">Jamadar, Chandrakant, et al. "Quality of Life among Widows." <em>International Journal of Indian Psychology</em>, vol. 3, no. 1, 25 Dec. 2015. <span class="wc-url">https://doi.org/10.25215/0301.172</span></div>
+
+    <div class="wc-entry">The Loomba Foundation. "Our Work: Empowering Widows." <span class="wc-url">https://theloombafoundation.org/our-work-empowering-widows/</span></div>
+
+    <div class="wc-entry">Pande, Rekha. "Widows of Vrindavan – Feminisation of Old Age in India." <em>Pakistan Journal of Gender Studies</em>, vol. 10, no. 1, 8 Mar. 2015, pp. 209–223. <span class="wc-url">https://doi.org/10.46568/pjgs.v10i1.235</span></div>
+
+    <div class="wc-entry">Parvez, Raza, and Virendra Balaji Shahare. "Fiscal Sustainability of Widow Pension Policies: A Comparative Analysis of India's Means-Tested Model vs. Universal Approaches in Nordic Countries." <em>The Academic</em>, 2025. <span class="wc-url">https://doi.org/10.5281/ZENODO.15858114</span></div>
+
+    <div class="wc-entry">Priyadarshini, Urvija, and Rekha Pande. "Exploring the Politics of Widowhood in Vrindavan: An Analysis of Life Narratives of Vrindavan Widows." <em>Advances in Applied Sociology</em>, vol. 11, no. 04, 2021, pp. 158–176. <span class="wc-url">https://doi.org/10.4236/aasoci.2021.114012</span></div>
+
+    <div class="wc-entry">Reddy, P. Adinarayana. <em>Problems of Widows in India</em>. Sarup and Sons, 2004.</div>
+
+    <div class="wc-entry">Reed, Megan N., et al. "Widow and Widower Mortality in India: A Research Note." <em>Demography</em>, vol. 62, no. 4, 2025, pp. 1141–1154. <span class="wc-url">https://doi.org/10.1215/00703370-12177893</span></div>
+
+    <div class="wc-entry">Roychowdhury, Ratul, et al. "Healing through Faith: Psychological Impact, Spiritual and Social Resilience of Widowhood in Vrindavan." <em>Frontiers in Health Informatics</em>, vol. 13, no. 8, Oct. 2024, pp. 6171–6184. <span class="wc-url">https://healthinformaticsjournal.com/index.php/IJMI/article/view/2483</span></div>
+
+    <div class="wc-entry">Shamsuddin, Mohammed. "A Brief Historical Background of Sati Tradition in India." <em>Din ve Felsefe Araştırmaları</em>, vol. 3, no. 5, 1 June 2020, pp. 44–63. <span class="wc-url">https://izlik.org/JA94UC49WF</span></div>
+
+    <div class="wc-entry">Subramanian, S. V., et al. "Widowhood and Mortality among the Elderly: The Modifying Role of Neighborhood Concentration of Widowed Individuals." <em>Social Science &amp; Medicine</em>, vol. 66, no. 4, 2008, pp. 873–884. <span class="wc-url">https://doi.org/10.1016/j.socscimed.2007.11.029</span></div>
+
+    <div class="wc-entry">Sulabh International School of Action Sociology and Sociology of Sanitation. "Widows Programme." <span class="wc-url">https://www.sisasss.org.in/widows-programme</span></div>
+
+    <div class="wc-entry">United States, Office of the Surgeon General. "Chapter 2: How Social Connection Impacts Individual Health and Well-Being." <em>Our Epidemic of Loneliness and Isolation</em>. U.S. Department of Health and Human Services, 2023, pp. 23–35. <span class="wc-url">www.hhs.gov/sites/default/files/surgeon-general-social-connection-advisory.pdf</span></div>
+
+    <div class="wc-entry">Vincent, Meera Ancy. "Welfare Impact of Targeted Social Assistance Programs: A Study on India's Widow Pension Scheme." <em>Journal of Emerging Technologies and Innovative Research (JETIR)</em>, vol. 7, no. 4, April 2020, pp. 576–580. <span class="wc-url">www.jetir.org/papers/JETIR2004576.pdf</span></div>
+  </div>
+</div>
+
+<footer>
+  © 2025 Anika Deshpande · Independent Research Portfolio · Overcoming Widowhood in Vrindavan, India
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
